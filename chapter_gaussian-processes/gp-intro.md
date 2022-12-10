@@ -124,17 +124,28 @@ The off-diagonal expression $k(x,x_1) = k(x_1,x)$
 tells us how correlated the function values will be --- how strongly determined $f(x)$
 will be from $f(x_1)$. 
 We've seen already that if we use a large length-scale, relative to the distance between $x$ and $x_1$, 
-$||x-x_1||$, then the function values will be highly correlated. We can visualize the process of determining $f(x)$ from $f(x_1)$ both in the space of functions, and in the joint distribution over $f(x_1), f(x)$. Let's initially consider an $x$ such that $k(x,x_1) = 0.7$, and $k(x,x)=1$, meaning that the value of $f(x)$ is moderately correlated with the value of $f(x_1)$. In the joint distribution, the contours of constant probability will be relatively narrow ellipses.
+$||x-x_1||$, then the function values will be highly correlated. We can visualize the process of determining $f(x)$ from $f(x_1)$ both in the space of functions, and in the joint distribution over $f(x_1), f(x)$. Let's initially consider an $x$ such that $k(x,x_1) = 0.$9, and $k(x,x)=1$, meaning that the value of $f(x)$ is moderately correlated with the value of $f(x_1)$. In the joint distribution, the contours of constant probability will be relatively narrow ellipses.
 
 Suppose we observe $f(x_1) = 1.2$. 
 To condition on this value of $f(x_1)$, 
 we can draw a horizontal line at $1.2$ on our plot of the density, and see that the value of $f(x)$ 
-is mostly constrained to $[0.8,1.4]$. We have also drawn this plot in function space. 
+is mostly constrained to $[0.64,1.52]$. We have also drawn this plot in function space, showing the observed
+point $f(x_1)$ in orange, and 1 standard deviation of the Gaussian process predictive distribution for $f(x)$ 
+in blue, about the mean value of $1.08$.
 
-Now suppose we have a stronger correlation, $k(x,x_1) = 0.9$. 
+![Contours of constant probability of a bivariate Gaussian density over $f(x_1)$ and $f(x)$ with $k(x,x_1) = 0.9$.](https://user-images.githubusercontent.com/6753639/206867364-b4707db5-0c2e-4ae4-a412-8292bca4d08d.svg)
+![Gaussian process predictive distribution in function space at $f(x)$, with $k(x,x_1) = 0.9$.](https://user-images.githubusercontent.com/6753639/206867367-3815720c-93c8-4b4b-80e7-296db1d3553b.svg)
+
+Now suppose we have a stronger correlation, $k(x,x_1) = 0.95$. 
 Now the ellipses have narrowed further, and the value of $f(x)$ 
 is even more strongly determined by $f(x_1)$. Drawing a horizontal line at $1.2$, we see the contours for $f(x)$
-support values mostly within $[1.15, 1.25]$. 
+support values mostly within $[0.83, 1.45]$. Again, we also show the plot in function space, with one standard 
+deviation about the mean predictive value of $1.14$.
+
+![Contours of constant probability of a bivariate Gaussian density over $f(x_1)$ and $f(x)$ with $k(x,x_1) = 0.95$.](https://user-images.githubusercontent.com/6753639/206867797-20e42783-31de-4c50-8103-e9441ba6d0a9.svg)
+![Gaussian process predictive distribution in function space at $f(x)$, with $k(x,x_1)$ = 0.95.](https://user-images.githubusercontent.com/6753639/206867800-d9fc7add-649d-492c-8848-cab07c8fb83e.svg)
+
+We see that the posterior mean predictor of our Gaussian process is closer to $1.2$, because there is now a stronger correlation. We also see that our uncertainty (the error bars) have somewhat decreased. Despite the strong correlation between these function values, our uncertainty is still righly quite large, because we have only observed a single data point! 
 
 This procedure can give us a posterior on $f(x)$ for any $x$, for any number of points we have observed. Suppose we observe $f(x_1), f(x_2)$. We now visualize the posterior for $f(x)$ at a particular $x=x'$ in function space. The exact distribution for $f(x)$ is given by the above equations. $f(x)$ is Gaussian distributed, with mean 
 
@@ -166,6 +177,6 @@ A Gaussian process represents a distribution over functions by specifying a mult
 2. Besides rate of variation and amplitude, what other properties of functions might we want to consider, and what would be real-world examples of functions that have those properties?
 3. The RBF covariance function we considered says that covariances (and correlations) between observations decrease with their distance in the input space (times, spatial locations, etc.). Is this a reasonable assumption? Why or why not?
 4. Is a sum of two Gaussian variables Gaussian? Is a product of two Gaussian variables Gaussian? If (a,b) have a joint Gaussian distribution, is a|b (a given b) Gaussian? Is a Gaussian?
-5. Repeat the exercise where we observe a data point at $f(x_1) = 1.2$, but now suppose we additionally observe $f(x_2) = 1.4$. Let $k(x,x_1) = 0.9$, and $k(x,x_2) = 0.8$. Will we be more or less certain about the value of $f(x)$, than when we had only observed $f(x_1)$? What is the mean and 95\% credible set for our value of $f(x)$ now?
+5. Repeat the exercise where we observe a data point at $f(x_1) = 1.2$, but now suppose we additionally observe $f(x_2) = 1.4$. Let $k(x,x_1) = 0.9$, and $k(x,x_2) = 0.8$. Will we be more or less certain about the value of $f(x)$, than when we had only observed $f(x_1)$? What is the mean and 95\% credible set for our value of $f(x)$ now? 
 6. Do you think increasing our estimate of observation noise would increase or decrease our estimate of the length-scale of the ground truth function?
 7. As we move away from the data, suppose the uncertainty in our predictive distribution increases to a point, then stops increasing. Why might that happen?
