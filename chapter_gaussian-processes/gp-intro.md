@@ -8,7 +8,7 @@ Suppose we observe the following dataset, of regression targets (outputs), $y$, 
 
 ![Observed data.](https://user-images.githubusercontent.com/6753639/178247765-650772fb-2622-42d0-8eff-316dc835816f.png)
 
-In order to fit the data with a Gaussian process, we start by specifying a prior distribution over what types of functions we might believe to be reasonable. Here we show several sample functions from a Gaussian process. Does this prior look reasonable? Note here we are not looking for functions that fit our dataset, but instead for specifying reasonable high-level properties of the solutions, such as how quickly they vary with inputs. 
+In order to fit the data with a Gaussian process, we start by specifying a prior distribution over what types of functions we might believe to be reasonable. Here we show several sample functions from a Gaussian process. Does this prior look reasonable? Note here we are not looking for functions that fit our dataset, but instead for specifying reasonable high-level properties of the solutions, such as how quickly they vary with inputs. Note that we will see code for reproducing all of the plots in this notebook, in the next notebooks on priors and inference.
 
 ![Sample prior functions that we may want to represent with our model.](https://user-images.githubusercontent.com/6753639/178247905-ca6d5812-92eb-45d2-9004-a435da917e78.png)
 
@@ -16,7 +16,7 @@ Once we condition on data, we can use this prior to infer a posterior distributi
 
 ![Sample posterior functions, once we have observed the data.](https://user-images.githubusercontent.com/6753639/178248696-bb31053e-68c9-4679-b09b-59a319d6479b.png)
 
-We see that each of these functions are entirely consistent with our data, perfectly running through each observation. In order to use these posterior samples to make predictions, we can average the values of every possible sample function from the posterior, to create the curve below, in thick blue. Note that we don't actually have to take an infinite number of samples to compute this expectation; as we will see later, we can compute the expectation in closed form.  
+We see that each of these functions are entirely consistent with our data, perfectly running through each observation. In order to use these posterior samples to make predictions, we can average the values of every possible sample function from the posterior, to create the curve below, in thick blue. Note that we don't actually have to take an infinite number of samples to compute this expectation; as we will see later, we can compute the expectation in closed form. 
 
 ![Posterior samples, alongside posterior mean, which can be used for point predictions, in blue.](https://user-images.githubusercontent.com/6753639/178248173-9d13e613-85f3-4414-ab13-8eb763580225.png)
 
