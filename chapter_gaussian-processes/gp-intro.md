@@ -166,5 +166,6 @@ A Gaussian process represents a distribution over functions by specifying a mult
 2. Besides rate of variation and amplitude, what other properties of functions might we want to consider, and what would be real-world examples of functions that have those properties?
 3. The RBF covariance function we considered says that covariances (and correlations) between observations decrease with their distance in the input space (times, spatial locations, etc.). Is this a reasonable assumption? Why or why not?
 4. Is a sum of two Gaussian variables Gaussian? Is a product of two Gaussian variables Gaussian? If (a,b) have a joint Gaussian distribution, is a|b (a given b) Gaussian? Is a Gaussian?
-5. Do you think increasing our estimate of observation noise would increase or decrease our estimate of the length-scale of the ground truth function?
-6. As we move away from the data, suppose the uncertainty in our predictive distribution increases to a point, then stops increasing. Why might that happen?
+5. Repeat the exercise where we observe a data point at $f(x_1) = 1.2$, but now suppose we additionally observe $f(x_2) = 1.4$. Let k(x,x_1) = 0.9, and k(x,x_2) = 0.8. Will we be more or less certain about the value of f(x), than when we had only observed $f(x_1)$? What is the mean and 95\% credible set for our value of $f(x)$ now?
+6. Do you think increasing our estimate of observation noise would increase or decrease our estimate of the length-scale of the ground truth function?
+7. As we move away from the data, suppose the uncertainty in our predictive distribution increases to a point, then stops increasing. Why might that happen?
